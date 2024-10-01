@@ -1,0 +1,22 @@
+<html>
+<head>
+</head>
+<body>
+    <h1>Kode</h1>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+<div>
+    <input type="text" id="ordvalg" placeholder="Skriv inn ordet fra kryssordet">
+    <button onclick="genererkode()">Generer kode</button>
+    <p id="resultat"></p>
+</div>
+
+<script>
+    function genererkode() {
+        var ord = document.getElementById("ordvalg").value;
+        var hash = CryptoJS.MD5(ord).toString();
+        var siffer = hash.replace(/\D/g, '').substring(0, 4); // Bruk de første 4 siffer
+        document.getElementById("resultat").innerText = "Koden er: " + siffer;
+    }
+</script>
+</body>
+</html>
